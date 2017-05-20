@@ -17,7 +17,7 @@ title: Ashlesh Gawande
 email: 
 description: Description
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://agawande.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "ashlesh.me" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: AshleshGawande
 github_username:  agawande
 

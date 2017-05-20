@@ -27,7 +27,7 @@ Mini-NDN uses the same basic framework introduced in Mini-CCNx to connect nodes 
 that they can ping each other. The following figure illustrates this:
 
 {:refdef: style="text-align: center;"}
-![Mini-NDN explain]({{ site.url }}/assets/minindn-explain.png){:height="300px" width="500px"}
+![Mini-NDN explain]({{ site.baseurl }}/assets/minindn-explain.png){:height="300px" width="500px"}
 {: refdef}
 
 Since then following changes have been made in Mini-NDN project:
