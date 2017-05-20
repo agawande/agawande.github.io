@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-05-19T22:23:54-05:00</updated><id>http://localhost:4000/</id><title type="html">Ashlesh Gawande</title><subtitle>Description</subtitle><entry><title type="html">Introduction to Mini-NDN</title><link href="http://localhost:4000/ndn/mini-ndn/mininet/2017/05/19/intro-to-minindn.html" rel="alternate" type="text/html" title="Introduction to Mini-NDN" /><published>2017-05-19T18:59:09-05:00</published><updated>2017-05-19T18:59:09-05:00</updated><id>http://localhost:4000/ndn/mini-ndn/mininet/2017/05/19/intro-to-minindn</id><content type="html" xml:base="http://localhost:4000/ndn/mini-ndn/mininet/2017/05/19/intro-to-minindn.html">&lt;p&gt;&lt;a href=&quot;https://github.com/named-data/mini-ndn&quot;&gt;Mini-NDN&lt;/a&gt; is a &lt;a href=&quot;https://github.com/mininet/mininet&quot;&gt;Mininet&lt;/a&gt; based network emulator for &lt;a href=&quot;https://named-data.net&quot;&gt;Named Data Networking&lt;/a&gt;.
+Mininet provides &lt;code class=&quot;highlighter-rouge&quot;&gt;host&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;node&lt;/code&gt; which are simply bash processes (Mininet also provides switches and controllers, but
+they are not used in our project yet).
+Each of the hosts has its own networking stack. This is done by using Linux network namespaces.
+Virtual ethernet pairs are used for linking these hosts. Link parameters such as delays, loss, bandwidth etc. can be set on the links
+Network namespaces are available only in Linux kernel. That is why Mininet can only be run only on Linux.
+Since network namspaces are not available in userspace, Mininet needs to run as sudo. This is the response I got
+on the Mininet mailing list about running without sudo from Bob Lantz (original author of Mininet) himself:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://mailman.stanford.edu/pipermail/mininet-discuss/2015-October/006549.html&quot;&gt;https://mailman.stanford.edu/pipermail/mininet-discuss/2015-October/006549.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Mininet is mostly written in python and hence allows for rapid development with simple APIs.
+Mini-NDN project started by forking Mini-CCNx which was a network emulator for PARC’s Content Centric Network (CCNx).
+&lt;a href=&quot;https://github.com/chesteve/mn-ccnx&quot;&gt;Mini-CCNx&lt;/a&gt; itself was a direct fork of Mininet. It provided the functionality to provide a topology file
+and created a network in Mininet. In this network CCNx forwarder is run on each node. Mini-CCNx also inherited Mininet’s GUI,
+Mininetedit as Miniccnxedit.&lt;/p&gt;
+
+&lt;p&gt;Mini-NDN uses the same basic framework introduced in Mini-CCNx to connect nodes together directly with each other using virtual ethernet pairs
+(as opposed to connecting nodes to switched as done in Mininet examples). One hack was to set consecutive IPs on the two virtual ethernets so
+that they can ping each other. The following figure illustrates this:&lt;/p&gt;
+
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;http://localhost:4000/assets/minindn-explain.png&quot; alt=&quot;Mini-NDN explain&quot; height=&quot;300px&quot; width=&quot;500px&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Since then following changes have been made in Mini-NDN project:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Mini-NDN runs NFD (NDN Forwarder) and NLSR (Routing protocol) on each node&lt;/li&gt;
+  &lt;li&gt;Mininet is now a dependency for Mini-NDN, forked code of Mininet is removed&lt;/li&gt;
+  &lt;li&gt;Mini-NDN config file supports NFD and NLSR options&lt;/li&gt;
+  &lt;li&gt;There is an experimental framework to write experiments&lt;/li&gt;
+  &lt;li&gt;Mini-NDN uses Mininet cluster edition to provide cluster functionality&lt;/li&gt;
+  &lt;li&gt;Minindnedit now supports NFD and NLSR parameteres in the GUI&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I like to describe Mini-NDN as a bunch of python scripts to run multiple NFD and NLSR on a single machine.
+Since a single machine can only handle so many processes there is a limit to scaling proportional to the CPU power
+of the machine. That is why we developed the cluster edition to help with scaling.
+But Mini-NDN provides a very realistic way to develop and test applications to run over NFD. Since applications
+interact directly with unmodified versions of NFD. Furthermore, Mininet’s command line allows interactive
+communication with any process (ex: NFD) running on any node. One downside of emulation as opposed to simulation is
+that it takes real time and hence is slower.&lt;/p&gt;</content><author><name></name></author><summary type="html">Mini-NDN is a Mininet based network emulator for Named Data Networking. Mininet provides host or node which are simply bash processes (Mininet also provides switches and controllers, but they are not used in our project yet). Each of the hosts has its own networking stack. This is done by using Linux network namespaces. Virtual ethernet pairs are used for linking these hosts. Link parameters such as delays, loss, bandwidth etc. can be set on the links Network namespaces are available only in Linux kernel. That is why Mininet can only be run only on Linux. Since network namspaces are not available in userspace, Mininet needs to run as sudo. This is the response I got on the Mininet mailing list about running without sudo from Bob Lantz (original author of Mininet) himself:</summary></entry></feed>
