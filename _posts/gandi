@@ -1,0 +1,5 @@
+gandi record create ashlesh.me --name www --type A --value 162.236.4.121
+
+gandi record list ashlesh.me --format text > ~/file.zone
+<Edit the file>
+gandi record update ashlesh.me -f ~/file.zone
