@@ -15,12 +15,13 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Ashlesh Gawande
-email: 
+email: agawande@memphis.edu
 description: Description
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "ashlesh.me" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: AshleshGawande
 github_username:  agawande
+linkedin_url: agawande
 
 # Build settings
 markdown: kramdown
